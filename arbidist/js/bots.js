@@ -30,6 +30,8 @@ function Bots() {
   const [mouth, setMouth] = useState(parseInt(params.get('m'), 10) || allBits)
   const [headgear, setHeadgear] = useState(parseInt(params.get('hg'), 10) || 2)
 
+  const [tokenId, setTokenId] = useState("");
+
   params.set('p', palette)
   params.set('b', body)
   params.set('h', head)
@@ -41,83 +43,72 @@ function Bots() {
 
   const paletteChoice = e(
     'ul',
-    { key: 'paletteChoice' },
-    [
-      e('li', { key: 'pch' }, 'palettes'),
-      e('li', { key: 'pc0' }, buildToggle('teal', 'pc0', mask0, palette, setPalette)),
-      e('li', { key: 'pc1' }, buildToggle('blue', 'pc1', mask1, palette, setPalette)),
-      e('li', { key: 'pc2' }, buildToggle('pink', 'pc2', mask2, palette, setPalette)),
-      e('li', { key: 'pc3' }, buildToggle('green', 'pc3', mask3, palette, setPalette)),
-      e('li', { key: 'pc4' }, buildToggle('other pink', 'pc4', mask4, palette, setPalette)),
-    ],
+    { },
+    e('li', { }, 'palettes'),
+    e('li', { }, buildToggle('teal', 'pc0', mask0, palette, setPalette)),
+    e('li', { }, buildToggle('blue', 'pc1', mask1, palette, setPalette)),
+    e('li', { }, buildToggle('pink', 'pc2', mask2, palette, setPalette)),
+    e('li', { }, buildToggle('green', 'pc3', mask3, palette, setPalette)),
+    e('li', { }, buildToggle('other pink', 'pc4', mask4, palette, setPalette)),
+    
   )
 
   const bodyChoice = e(
     'ul',
-    { key: 'bodyChoice' },
-    [
-      e('li', { key: 'bch' }, 'bodies'),
-      e('li', { key: 'bc0' }, buildToggle('0', 'bc0', mask0, body, setBody)),
-      e('li', { key: 'bc1' }, buildToggle('1', 'bc1', mask1, body, setBody)),
-      e('li', { key: 'bc2' }, buildToggle('2', 'bc2', mask2, body, setBody)),
-      e('li', { key: 'bc3' }, buildToggle('3', 'bc3', mask3, body, setBody)),
-      e('li', { key: 'bc4' }, buildToggle('4', 'bc4', mask4, body, setBody)),
-      e('li', { key: 'bc5' }, buildToggle('5', 'bc5', mask5, body, setBody)),
-      e('li', { key: 'bc6' }, buildToggle('6', 'bc6', mask6, body, setBody)),
-    ],
+    { },
+    e('li', { }, 'bodies'),
+    e('li', { }, buildToggle('0', 'bc0', mask0, body, setBody)),
+    e('li', { }, buildToggle('1', 'bc1', mask1, body, setBody)),
+    e('li', { }, buildToggle('sock', 'bc2', mask2, body, setBody)),
+    e('li', { }, buildToggle('3', 'bc3', mask3, body, setBody)),
+    e('li', { }, buildToggle('4', 'bc4', mask4, body, setBody)),
+    e('li', { }, buildToggle('5', 'bc5', mask5, body, setBody)),
+    e('li', { }, buildToggle('6', 'bc6', mask6, body, setBody)),
   )
 
   const headChoice = e(
     'ul',
-    { key: 'headChoice' },
-    [
-      e('li', { key: 'hch' }, 'heads'),
-      e('li', { key: 'hc0' }, buildToggle('0', 'hc0', mask0, head, setHead)),
-      e('li', { key: 'hc1' }, buildToggle('1', 'hc1', mask1, head, setHead)),
-      e('li', { key: 'hc2' }, buildToggle('box', 'hc2', mask2, head, setHead)),
-      e('li', { key: 'hc3' }, buildToggle('3', 'hc3', mask3, head, setHead)),
-      e('li', { key: 'hc4' }, buildToggle('4', 'hc4', mask4, head, setHead)),
-    ],
+    { },
+    e('li', { }, 'heads'),
+    e('li', { }, buildToggle('0', 'hc0', mask0, head, setHead)),
+    e('li', { }, buildToggle('1', 'hc1', mask1, head, setHead)),
+    e('li', { }, buildToggle('box', 'hc2', mask2, head, setHead)),
+    e('li', { }, buildToggle('3', 'hc3', mask3, head, setHead)),
+    e('li', { }, buildToggle('4', 'hc4', mask4, head, setHead)),
   )
 
   const eyeChoice = e(
     'ul',
-    { key: 'eyeChoice' },
-    [
-      e('li', { key: 'ech' }, 'eyes'),
-      e('li', { key: 'ec0' }, buildToggle('0', 'ec0', mask0, eyes, setEyes)),
-      e('li', { key: 'ec1' }, buildToggle('1', 'ec1', mask1, eyes, setEyes)),
-      e('li', { key: 'ec2' }, buildToggle('2', 'ec2', mask2, eyes, setEyes)),
-      e('li', { key: 'ec3' }, buildToggle('3', 'ec3', mask3, eyes, setEyes)),
-      e('li', { key: 'ec4' }, buildToggle('4', 'ec4', mask4, eyes, setEyes)),
-      e('li', { key: 'ec5' }, buildToggle('5', 'ec5', mask5, eyes, setEyes)),
-    ],
+    { },
+    e('li', { }, 'eyes'),
+    e('li', { }, buildToggle('0', 'ec0', mask0, eyes, setEyes)),
+    e('li', { }, buildToggle('1', 'ec1', mask1, eyes, setEyes)),
+    e('li', { }, buildToggle('2', 'ec2', mask2, eyes, setEyes)),
+    e('li', { }, buildToggle('3', 'ec3', mask3, eyes, setEyes)),
+    e('li', { }, buildToggle('4', 'ec4', mask4, eyes, setEyes)),
+    e('li', { }, buildToggle('5', 'ec5', mask5, eyes, setEyes)),
   )
 
   const mouthChoice = e(
     'ul',
-    { key: 'mouthChoice' },
-    [
-      e('li', { key: 'mch' }, 'mouths'),
-      e('li', { key: 'mc0' }, buildToggle('0', 'mc0', mask0, mouth, setMouth)),
-      e('li', { key: 'mc1' }, buildToggle('1', 'mc1', mask1, mouth, setMouth)),
-      e('li', { key: 'mc2' }, buildToggle('2', 'mc2', mask2, mouth, setMouth)),
-      e('li', { key: 'mc3' }, buildToggle('3', 'mc3', mask3, mouth, setMouth)),
-      e('li', { key: 'mc4' }, buildToggle('4', 'mc4', mask4, mouth, setMouth)),
-    ],
+    { },
+    e('li', { }, 'mouths'),
+    e('li', { }, buildToggle('0', 'mc0', mask0, mouth, setMouth)),
+    e('li', { }, buildToggle('1', 'mc1', mask1, mouth, setMouth)),
+    e('li', { }, buildToggle('2', 'mc2', mask2, mouth, setMouth)),
+    e('li', { }, buildToggle('3', 'mc3', mask3, mouth, setMouth)),
+    e('li', { }, buildToggle('4', 'mc4', mask4, mouth, setMouth)),
   )
 
   const headgearChoice = e(
     'ul',
-    { key: 'headgearChoice' },
-    [
-      e('li', { key: 'hgch' }, 'headgears'),
-      e('li', { key: 'hgc0' }, buildToggle('bug', 'hgc0', mask0, headgear, setHeadgear)),
-      e('li', { key: 'hgc1' }, buildToggle('alien', 'hgc1', mask1, headgear, setHeadgear)),
-      e('li', { key: 'hgc2' }, buildToggle('flower', 'hgc2', mask2, headgear, setHeadgear)),
-      e('li', { key: 'hgc3' }, buildToggle('cat ears', 'hgc3', mask3, headgear, setHeadgear)),
-      e('li', { key: 'hgc4' }, buildToggle('cat ears big', 'hgc4', mask4, headgear, setHeadgear)),
-    ],
+    { },
+    e('li', { }, 'headgears'),
+    e('li', { }, buildToggle('bug', 'hgc0', mask0, headgear, setHeadgear)),
+    e('li', { }, buildToggle('alien', 'hgc1', mask1, headgear, setHeadgear)),
+    e('li', { }, buildToggle('flower', 'hgc2', mask2, headgear, setHeadgear)),
+    e('li', { }, buildToggle('cat ears', 'hgc3', mask3, headgear, setHeadgear)),
+    e('li', { }, buildToggle('cat ears big', 'hgc4', mask4, headgear, setHeadgear)),
   )
 
   let totalBots = 0
@@ -135,27 +126,50 @@ function Bots() {
       && (headgear & (1 << bot.headgear))
     ) {
       totalBots++
-      botElements.push(e('span', { key: i }, [e('span', { key: '0', className: 'num'}, `#${i}`), e('img', { key: '1', src: `images/pngs/${i}.png`, alt: `tokenId: ${i}`})]))
+      botElements.push(e('span', { key: i }, e('span', { className: 'num'}, `#${i}`), e('img', { src: `images/pngs/${i}.png`, alt: `tokenId: ${i}`})))
     }
   }
 
 
   const controlsContainer = e(
     'div',
-    { key: 'controlsContainer', id: 'controls' },
-    [paletteChoice, bodyChoice, headChoice, eyeChoice, mouthChoice, headgearChoice]
+    { id: 'controls' },
+    paletteChoice, bodyChoice, headChoice, eyeChoice, mouthChoice, headgearChoice
+  );
+
+  const loadBotContainer = e(
+    'form',
+    { onSubmit: (e) => {
+      e.preventDefault()
+      const tIdNumber = parseInt(tokenId, 10)
+      if (isNaN(tIdNumber) || tIdNumber >= 2000 || tIdNumber < 0) {
+        alert('invalid token id')
+        return
+      }
+      const bot = bots[tIdNumber]
+      setPalette(1 << bot.palette)
+      setBody(1 << bot.body)
+      setHead(1 << bot.head)
+      setEyes(1 << bot.eyes)
+      setMouth(1 << bot.mouth)
+      setHeadgear(1 << bot.headgear)
+    }},
+    e('label', { htmlFor: 'tokenId' }, 'Bot id: '),
+    e('input', { type: 'text', id: 'tokenId', value: tokenId, onChange: (e) => {setTokenId(e.target.value)} }),
+    e('input', { type: 'submit', value: 'load bot' }),
+
   );
 
   const botsContainer = e(
     'div',
-    { key: 'botsContainer' },
+    { id: 'botContainer' },
     botElements
   );
 
   return e(
     'div',
     {},
-    [controlsContainer, e('p', {key: 'tb'}, `${totalBots} total bots with this configuration`), botsContainer]
+    controlsContainer, loadBotContainer, e('p', { }, `${totalBots} total bots with this configuration`), botsContainer
   );
 }
 

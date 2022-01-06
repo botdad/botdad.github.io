@@ -21,23 +21,34 @@ function buildToggle(label, id, mask, state, toggleFunc) {
 }
 
 function Bots() {
-  const [palette, setPalette] = useState(4)
-  const [body, setBody] = useState(allBits)
-  const [head, setHead] = useState(4)
-  const [eyes, setEyes] = useState(allBits)
-  const [mouth, setMouth] = useState(allBits)
-  const [headgear, setHeadgear] = useState(2)
+  const params = new URLSearchParams(window.location.hash.substring(1))
+
+  const [palette, setPalette] = useState(parseInt(params.get('p'), 10) || 4)
+  const [body, setBody] = useState(parseInt(params.get('b'), 10) || allBits)
+  const [head, setHead] = useState(parseInt(params.get('h'), 10) || 4)
+  const [eyes, setEyes] = useState(parseInt(params.get('e'), 10) || allBits)
+  const [mouth, setMouth] = useState(parseInt(params.get('m'), 10) || allBits)
+  const [headgear, setHeadgear] = useState(parseInt(params.get('hg'), 10) || 2)
+
+  params.set('p', palette)
+  params.set('b', body)
+  params.set('h', head)
+  params.set('e', eyes)
+  params.set('m', mouth)
+  params.set('hg', headgear)
+
+  window.location.hash = params.toString()
 
   const paletteChoice = e(
     'ul',
     { key: 'paletteChoice' },
     [
       e('li', { key: 'pch' }, 'palettes'),
-      e('li', { key: 'pc0' }, buildToggle('0', 'pc0', mask0, palette, setPalette)),
-      e('li', { key: 'pc1' }, buildToggle('1', 'pc1', mask1, palette, setPalette)),
-      e('li', { key: 'pc2' }, buildToggle('2', 'pc2', mask2, palette, setPalette)),
-      e('li', { key: 'pc3' }, buildToggle('3', 'pc3', mask3, palette, setPalette)),
-      e('li', { key: 'pc4' }, buildToggle('4', 'pc4', mask4, palette, setPalette)),
+      e('li', { key: 'pc0' }, buildToggle('teal', 'pc0', mask0, palette, setPalette)),
+      e('li', { key: 'pc1' }, buildToggle('blue', 'pc1', mask1, palette, setPalette)),
+      e('li', { key: 'pc2' }, buildToggle('pink', 'pc2', mask2, palette, setPalette)),
+      e('li', { key: 'pc3' }, buildToggle('green', 'pc3', mask3, palette, setPalette)),
+      e('li', { key: 'pc4' }, buildToggle('other pink', 'pc4', mask4, palette, setPalette)),
     ],
   )
 
@@ -124,7 +135,7 @@ function Bots() {
       && (headgear & (1 << bot.headgear))
     ) {
       totalBots++
-      botElements.push(e('img', { key: i, src: `images/pngs/${i}.png`, alt: `tokenId: ${i}`}))
+      botElements.push(e('span', { key: i }, [e('span', { key: '0', className: 'num'}, `#${i}`), e('img', { key: '1', src: `images/pngs/${i}.png`, alt: `tokenId: ${i}`})]))
     }
   }
 

@@ -45,11 +45,11 @@ function Bots() {
     'ul',
     { },
     e('li', { }, 'palettes'),
-    e('li', { }, buildToggle('teal', 'pc0', mask0, palette, setPalette)),
-    e('li', { }, buildToggle('blue', 'pc1', mask1, palette, setPalette)),
-    e('li', { }, buildToggle('pink', 'pc2', mask2, palette, setPalette)),
-    e('li', { }, buildToggle('green', 'pc3', mask3, palette, setPalette)),
-    e('li', { }, buildToggle('other pink', 'pc4', mask4, palette, setPalette)),
+    e('li', { }, buildToggle('Blueberry', 'pc0', mask0, palette, setPalette)),
+    e('li', { }, buildToggle('Grape', 'pc1', mask1, palette, setPalette)),
+    e('li', { }, buildToggle('Cherry', 'pc2', mask2, palette, setPalette)),
+    e('li', { }, buildToggle('Lime', 'pc3', mask3, palette, setPalette)),
+    e('li', { }, buildToggle('Strawberry', 'pc4', mask4, palette, setPalette)),
     
   )
 
@@ -57,58 +57,58 @@ function Bots() {
     'ul',
     { },
     e('li', { }, 'bodies'),
-    e('li', { }, buildToggle('0', 'bc0', mask0, body, setBody)),
-    e('li', { }, buildToggle('1', 'bc1', mask1, body, setBody)),
-    e('li', { }, buildToggle('sock', 'bc2', mask2, body, setBody)),
-    e('li', { }, buildToggle('3', 'bc3', mask3, body, setBody)),
-    e('li', { }, buildToggle('4', 'bc4', mask4, body, setBody)),
-    e('li', { }, buildToggle('5', 'bc5', mask5, body, setBody)),
-    e('li', { }, buildToggle('6', 'bc6', mask6, body, setBody)),
+    e('li', { }, buildToggle('Nude', 'bc0', mask0, body, setBody)),
+    e('li', { }, buildToggle('No Shirt', 'bc1', mask1, body, setBody)),
+    e('li', { }, buildToggle('Sock', 'bc2', mask2, body, setBody)),
+    e('li', { }, buildToggle('Smock', 'bc3', mask3, body, setBody)),
+    e('li', { }, buildToggle('Beefy', 'bc4', mask4, body, setBody)),
+    e('li', { }, buildToggle('Shirt', 'bc5', mask5, body, setBody)),
+    e('li', { }, buildToggle('Robe', 'bc6', mask6, body, setBody)),
   )
 
   const headChoice = e(
     'ul',
     { },
     e('li', { }, 'heads'),
-    e('li', { }, buildToggle('0', 'hc0', mask0, head, setHead)),
-    e('li', { }, buildToggle('1', 'hc1', mask1, head, setHead)),
-    e('li', { }, buildToggle('box', 'hc2', mask2, head, setHead)),
-    e('li', { }, buildToggle('3', 'hc3', mask3, head, setHead)),
-    e('li', { }, buildToggle('4', 'hc4', mask4, head, setHead)),
+    e('li', { }, buildToggle('Chad', 'hc0', mask0, head, setHead)),
+    e('li', { }, buildToggle('Round', 'hc1', mask1, head, setHead)),
+    e('li', { }, buildToggle('Box', 'hc2', mask2, head, setHead)),
+    e('li', { }, buildToggle('Football', 'hc3', mask3, head, setHead)),
+    e('li', { }, buildToggle('Flattop', 'hc4', mask4, head, setHead)),
   )
 
   const eyeChoice = e(
     'ul',
     { },
     e('li', { }, 'eyes'),
-    e('li', { }, buildToggle('0', 'ec0', mask0, eyes, setEyes)),
-    e('li', { }, buildToggle('1', 'ec1', mask1, eyes, setEyes)),
-    e('li', { }, buildToggle('2', 'ec2', mask2, eyes, setEyes)),
-    e('li', { }, buildToggle('3', 'ec3', mask3, eyes, setEyes)),
-    e('li', { }, buildToggle('4', 'ec4', mask4, eyes, setEyes)),
-    e('li', { }, buildToggle('5', 'ec5', mask5, eyes, setEyes)),
+    e('li', { }, buildToggle('Color', 'ec0', mask0, eyes, setEyes)),
+    e('li', { }, buildToggle('Closed', 'ec1', mask1, eyes, setEyes)),
+    e('li', { }, buildToggle('Happy', 'ec2', mask2, eyes, setEyes)),
+    e('li', { }, buildToggle('Brows', 'ec3', mask3, eyes, setEyes)),
+    e('li', { }, buildToggle('Alert', 'ec4', mask4, eyes, setEyes)),
+    e('li', { }, buildToggle('uwu', 'ec5', mask5, eyes, setEyes)),
   )
 
   const mouthChoice = e(
     'ul',
     { },
     e('li', { }, 'mouths'),
-    e('li', { }, buildToggle('0', 'mc0', mask0, mouth, setMouth)),
-    e('li', { }, buildToggle('1', 'mc1', mask1, mouth, setMouth)),
-    e('li', { }, buildToggle('2', 'mc2', mask2, mouth, setMouth)),
-    e('li', { }, buildToggle('3', 'mc3', mask3, mouth, setMouth)),
-    e('li', { }, buildToggle('4', 'mc4', mask4, mouth, setMouth)),
+    e('li', { }, buildToggle('uwu', 'mc0', mask0, mouth, setMouth)),
+    e('li', { }, buildToggle('Stoic', 'mc1', mask1, mouth, setMouth)),
+    e('li', { }, buildToggle('Shut', 'mc2', mask2, mouth, setMouth)),
+    e('li', { }, buildToggle('Smile', 'mc3', mask3, mouth, setMouth)),
+    e('li', { }, buildToggle('Cheer', 'mc4', mask4, mouth, setMouth)),
   )
 
   const headgearChoice = e(
     'ul',
     { },
     e('li', { }, 'headgears'),
-    e('li', { }, buildToggle('bug', 'hgc0', mask0, headgear, setHeadgear)),
-    e('li', { }, buildToggle('alien', 'hgc1', mask1, headgear, setHeadgear)),
-    e('li', { }, buildToggle('flower', 'hgc2', mask2, headgear, setHeadgear)),
-    e('li', { }, buildToggle('cat ears', 'hgc3', mask3, headgear, setHeadgear)),
-    e('li', { }, buildToggle('cat ears big', 'hgc4', mask4, headgear, setHeadgear)),
+    e('li', { }, buildToggle('Bug', 'hgc0', mask0, headgear, setHeadgear)),
+    e('li', { }, buildToggle('Alien', 'hgc1', mask1, headgear, setHeadgear)),
+    e('li', { }, buildToggle('Flower', 'hgc2', mask2, headgear, setHeadgear)),
+    e('li', { }, buildToggle('Cat Ears', 'hgc3', mask3, headgear, setHeadgear)),
+    e('li', { }, buildToggle('Bunny Ears', 'hgc4', mask4, headgear, setHeadgear)),
   )
 
   let totalBots = 0

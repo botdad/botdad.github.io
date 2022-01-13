@@ -2,22 +2,33 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Arbivariety</title>
     <style>
-      #controls {
+      ul li:first-child {
+        list-style: none;
+        font-weight: bold;
+      }
+      #toggles {
         display: flex;
+        flex-wrap: wrap;
       }
       #botContainer {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      #controlsContainer {
       }
       .num {
         position: absolute;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <div id="bots_container"></div>
+    <div id="reactContainer"></div>
 
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->

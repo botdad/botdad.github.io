@@ -44,7 +44,7 @@ function Bots() {
   const paletteChoice = e(
     'ul',
     { },
-    e('li', { }, 'palettes'),
+    e('li', { }, 'Palettes'),
     e('li', { }, buildToggle('Blueberry', 'pc0', mask0, palette, setPalette)),
     e('li', { }, buildToggle('Grape', 'pc1', mask1, palette, setPalette)),
     e('li', { }, buildToggle('Cherry', 'pc2', mask2, palette, setPalette)),
@@ -56,7 +56,7 @@ function Bots() {
   const bodyChoice = e(
     'ul',
     { },
-    e('li', { }, 'bodies'),
+    e('li', { }, 'Bodies'),
     e('li', { }, buildToggle('Nude', 'bc0', mask0, body, setBody)),
     e('li', { }, buildToggle('No Shirt', 'bc1', mask1, body, setBody)),
     e('li', { }, buildToggle('Sock', 'bc2', mask2, body, setBody)),
@@ -69,7 +69,7 @@ function Bots() {
   const headChoice = e(
     'ul',
     { },
-    e('li', { }, 'heads'),
+    e('li', { }, 'Heads'),
     e('li', { }, buildToggle('Chad', 'hc0', mask0, head, setHead)),
     e('li', { }, buildToggle('Round', 'hc1', mask1, head, setHead)),
     e('li', { }, buildToggle('Box', 'hc2', mask2, head, setHead)),
@@ -80,7 +80,7 @@ function Bots() {
   const eyeChoice = e(
     'ul',
     { },
-    e('li', { }, 'eyes'),
+    e('li', { }, 'Eyes'),
     e('li', { }, buildToggle('Color', 'ec0', mask0, eyes, setEyes)),
     e('li', { }, buildToggle('Closed', 'ec1', mask1, eyes, setEyes)),
     e('li', { }, buildToggle('Happy', 'ec2', mask2, eyes, setEyes)),
@@ -92,7 +92,7 @@ function Bots() {
   const mouthChoice = e(
     'ul',
     { },
-    e('li', { }, 'mouths'),
+    e('li', { }, 'Mouths'),
     e('li', { }, buildToggle('uwu', 'mc0', mask0, mouth, setMouth)),
     e('li', { }, buildToggle('Stoic', 'mc1', mask1, mouth, setMouth)),
     e('li', { }, buildToggle('Shut', 'mc2', mask2, mouth, setMouth)),
@@ -103,7 +103,7 @@ function Bots() {
   const headgearChoice = e(
     'ul',
     { },
-    e('li', { }, 'headgears'),
+    e('li', { }, 'Headgears'),
     e('li', { }, buildToggle('Bug', 'hgc0', mask0, headgear, setHeadgear)),
     e('li', { }, buildToggle('Alien', 'hgc1', mask1, headgear, setHeadgear)),
     e('li', { }, buildToggle('Flower', 'hgc2', mask2, headgear, setHeadgear)),
@@ -126,14 +126,18 @@ function Bots() {
       && (headgear & (1 << bot.headgear))
     ) {
       totalBots++
-      botElements.push(e('span', { key: i }, e('span', { className: 'num'}, `#${i}`), e('img', { src: `images/pngs/${i}.png`, alt: `tokenId: ${i}`})))
+      let littermatesStr = ''
+      if (bot.littermates.length > 0) {
+        littermatesStr = 'Sibs: ['+bot.littermates.filter((lId) => lId != i).map((lId) => `#${lId}`)+']'
+      }
+      botElements.push(e('span', { key: i }, e('span', { className: 'num'}, `#${i} ${littermatesStr}`), e('img', { src: `images/pngs/${i}.png`, alt: `tokenId: ${i}`})))
     }
   }
 
 
-  const controlsContainer = e(
+  const togglessContainer = e(
     'div',
-    { id: 'controls' },
+    { id: 'toggles' },
     paletteChoice, bodyChoice, headChoice, eyeChoice, mouthChoice, headgearChoice
   );
 
@@ -166,12 +170,19 @@ function Bots() {
     botElements
   );
 
-  return e(
+
+  const controlsContainer = e(
     'div',
+    { id: 'controlsContainer' },
+    togglessContainer, loadBotContainer, e('p', { }, `${totalBots} total bots with this configuration`)
+  );
+
+  return e(
+    React.Fragment,
     {},
-    controlsContainer, loadBotContainer, e('p', { }, `${totalBots} total bots with this configuration`), botsContainer
+    controlsContainer, botsContainer
   );
 }
 
-const domContainer = document.querySelector('#bots_container')
+const domContainer = document.querySelector('#reactContainer')
 ReactDOM.render(e(Bots), domContainer)

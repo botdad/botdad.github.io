@@ -41,6 +41,18 @@ function Bots() {
 
   window.location.hash = params.toString()
 
+  window.onpopstate = function () {
+    const newParams = new URLSearchParams(window.location.hash.substring(1))
+    if (newParams.toString() !== params.toString()) {
+      setPalette(parseInt(newParams.get('p'), 10) || 4)
+      setBody(parseInt(newParams.get('b'), 10) || allBits)
+      setHead(parseInt(newParams.get('h'), 10) || 4)
+      setEyes(parseInt(newParams.get('e'), 10) || allBits)
+      setMouth(parseInt(newParams.get('m'), 10) || allBits)
+      setHeadgear(parseInt(newParams.get('hg'), 10) || 2)
+    }
+  };
+
   const paletteChoice = e(
     'ul',
     { },
@@ -184,5 +196,4 @@ function Bots() {
   );
 }
 
-const domContainer = document.querySelector('#reactContainer')
-ReactDOM.render(e(Bots), domContainer)
+ReactDOM.render(e(Bots), document.querySelector('#reactContainer'))
